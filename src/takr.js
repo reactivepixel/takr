@@ -79,23 +79,23 @@ async function processXPost(url) {
 // Function to process all URLs and save results to CSV
 async function processAllPosts() {
   // Read the input CSV file
-  if (!fs.existsSync('input.csv')) {
-    console.error('Error: input.csv file not found');
+  if (!fs.existsSync('src/input.csv')) {
+    console.error('Error: src/input.csv file not found');
     return;
   }
 
-  const inputData = fs.readFileSync('input.csv', 'utf8');
+  const inputData = fs.readFileSync('src/input.csv', 'utf8');
   const rows = inputData.split('\n').filter(row => row.trim() !== '');
   
   // Assume first row is header, extract post URLs from first column
   const postUrls = rows.slice(1).map(row => row.split(',')[0].trim());
   
   if (postUrls.length === 0) {
-    console.error('No URLs found in input.csv');
+    console.error('No URLs found in src/input.csv');
     return;
   }
   
-  console.log(`Processing ${postUrls.length} URLs from input.csv...`);
+  console.log(`Processing ${postUrls.length} URLs from src/input.csv...`);
   
   // Process each URL one by one to avoid overloading the browser
   const results = [];
@@ -121,9 +121,9 @@ async function processAllPosts() {
     })
   ].join('\n');
   
-  // Write to output.csv
-  fs.writeFileSync('output.csv', csvContent, 'utf8');
-  console.log(`Results saved to output.csv (${results.length} rows)`);
+  // Write to src/output.csv
+  fs.writeFileSync('src/output.csv', csvContent, 'utf8');
+  console.log(`Results saved to src/output.csv (${results.length} rows)`);
 }
 
 // Run the batch processing

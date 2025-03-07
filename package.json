@@ -1,13 +1,13 @@
 {
   "name": "takr",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "violate the rules of x",
+  "main": "src/takr.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/takr.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["x", "violate", "rules", "takr"],
+  "author": "Chapman",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
